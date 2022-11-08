@@ -1,0 +1,39 @@
+                          Workshop - #8 (P2)
+Full Name  : NONTHACHAI PLODTHONG
+Student ID#:152487211
+Email      :nplodthong@myseneca.ca
+Section    :NFF
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+
+Reflection (50%)Instructions• Record your answer(s) to the reflection question(s) in the provided “reflect.txt” text file1. Structure data types can demand a lot of memory (for example the "ReportData" structure). Without digging into advanced memory management (for example padding), how many bytes of memory would the "ReportData" structure minimally require? How could we improve the passing of this information to functions? Use the function "displayReportData" from this workshop in your explanation.
+The struct required 4 byte, 
+
+struct ReportData calculateReportData(struct CatFoodInfo product_data) {
+    struct ReportData data_product;
+data_product.weight_kg = convertLbsKg
+            (&product_data.weight_lbs, NULL);
+
+    data_product.weight_g = convertLbsG
+            (&product_data.weight_lbs, NULL);
+
+    data_product.total_serving = calculateServings
+            (SUGGEST_SERVING,
+             data_product.weight_g,
+             NULL);
+
+I passing the information like this into function so we can save alot of memory and we can use malloc to manage the memory
+
+2. The CatFoodInfo structure and the ReportData structure contain common members. How could the "ReportData" structure be improved? Show the new and improved "ReportData" structure with your changes, then show how you would modify your code in the function "displayReportData". Specifically, show how you would need to modify the printf statement that displays the data.
+
+I'm use just function displayReportData and for loop it
+   for (i = 0; i < NUM_MAX; i++) {
+        displayReportData(reportDataList[i],
+                          i == cheapestProductIndex);
+
+    }
+
+this is how I improved the function
